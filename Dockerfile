@@ -12,4 +12,6 @@ RUN rm -rf openjdk-11.0.1_linux-x64_bin.tar.gz
 #RUN chmod u+x run.sh
 
 COPY /target/bookdine-0.0.1-SNAPSHOT.jar .
-ENTRYPOINT [ "java", "-jar", "bookdine-0.0.1-SNAPSHOT.jar" ]
+RUN chmod u+x bookdine-0.0.1-SNAPSHOT.jar
+EXPOSE 8080
+CMD [ "java", "-jar", "bookdine-0.0.1-SNAPSHOT.jar" ]

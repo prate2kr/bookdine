@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Show Resturant</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            td {
+                text-align: center;
+            }
+            th {
+                background-color: #D6EEEE;
+            }
+            </style>
+    </head>
+    <body>
+        <div th:switch="${lists}">
+            <h2 th:case="null">No restaurants found!</h2>
+                <div th:case="*">
+                    <h2  style="background-color:#bbff00" >Restaurants</h2>
+                    <table style="width:100%" BORDER=”1″>
+                        <thead color="aquablue">
+                            <tr>
+                                <th>Restaurant Name</th>
+                                <th>Address</th>
+                                <th>AverageCost</th>
+                                <th>OpeningHours</th>
+                                <th>Telephone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="restor : ${lists}">
+                            <td th:text="${restor.restroName}"></td>
+                            <td th:text="${restor.address}"></td>
+                            <td th:text="${restor.averageCost}"></td>
+                            <td th:text="${restor.openingHours}"></td>
+                            <td th:text="${restor.telephone}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>      
+        </div>
+    </body>
+</html>
